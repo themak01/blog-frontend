@@ -16,7 +16,7 @@ const Post = () => {
     error: "",
     createdPost: "",
     getaRedirect: false,
-    formData: ""
+    formData: new FormData(),
   });
 
   const {
@@ -44,7 +44,8 @@ const Post = () => {
           description: "",
           photo: "", 
           loading: false,
-          createdPost: data.post
+          createdPost: data.post,
+          formData: new FormData(),
         })
       }
     })
@@ -52,7 +53,7 @@ const Post = () => {
 
   const handleChange = postedby => event => {
     const value = postedby === "photo" ? event.target.files[0] : event.target.value;
-    FormData.set(postedby, value)
+    formData.set(postedby, value)
     setValues({ ...values, [postedby]: value });
   };
 
