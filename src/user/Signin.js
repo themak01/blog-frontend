@@ -6,8 +6,8 @@ import { signin, authenticate, isAutheticated } from "../auth/helper";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    username: "",
-    password: "",
+    username: "nidhi",
+    password: "123456",
     error: "",
     loading: false,
     didRedirect: false
@@ -44,7 +44,7 @@ const Signin = () => {
       if (user && user.role === 1) {
         return <Redirect to="/admin/dashboard" />;
       } else {
-        return <Redirect to="/" />;
+        return <Redirect to="/user/dashboard" />;
       }
     }
     if (isAutheticated()) {
@@ -88,7 +88,7 @@ const Signin = () => {
                 onChange={handleChange("username")}
                 value={username}
                 className="form-control"
-                type="email"
+                type="username"
               />
             </div>
 
@@ -106,9 +106,7 @@ const Signin = () => {
             </button>
           </form>
         </div>
-        
       </div>
-      
     );
   };
 

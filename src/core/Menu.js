@@ -13,37 +13,14 @@ const currentTab = (history, path) => {
 const Menu = ({ history }) => (
   <div>
     <ul className="nav nav-tabs bg-dark">
-    <li className="nav-item">
+      {!isAutheticated() && (
+        <li className="nav-item">
         <Link style={currentTab(history, "/")} className="nav-link" to="/">
           Home
         </Link>
       </li>
-      {isAutheticated() && (
-        <li className="nav-item">
-        <Link
-          style={currentTab(history, "/cart")}
-          className="nav-link"
-          to="/post/create"
-        >
-          Post
-        </Link>
-        
-      </li>
       )}
-      
 
-      {isAutheticated() && (
-        <li className="nav-item">
-        <Link
-          style={currentTab(history, "/cart")}
-          className="nav-link"
-          to="/notification"
-        >
-          Notification
-        </Link>
-        
-      </li>
-      )}
       {isAutheticated() && isAutheticated().user.role === 0 && (
         <li className="nav-item">
           <Link
@@ -51,10 +28,35 @@ const Menu = ({ history }) => (
             className="nav-link"
             to="/user/dashboard"
           >
-            Profile
+          Dashboard
           </Link>
         </li>
       )}
+
+     {isAutheticated() && (
+      <li className="nav-item">
+      <Link
+        style={currentTab(history, "/cart")}
+        className="nav-link"
+        to="/user/create/post"
+      >
+        Post
+      </Link>
+    </li>
+     )}
+
+     {isAutheticated() && (
+      <li className="nav-item">
+      <Link
+        style={currentTab(history, "/cart")}
+        className="nav-link"
+        to="/user/create/post"
+      >
+        Profile
+      </Link>
+    </li>
+     )}
+      
       {isAutheticated() && isAutheticated().user.role === 1 && (
         <li className="nav-item">
           <Link
@@ -94,7 +96,7 @@ const Menu = ({ history }) => (
             className="nav-link text-warning"
             onClick={() => {
               signout(() => {
-                history.push("/signin");
+                history.push("/");
               });
             }}
           >

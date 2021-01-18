@@ -42,16 +42,16 @@ const Signup = () => {
       <div className="row">
         <div className="col-md-6 offset-sm-3 text-left">
           <form>
-            
             <div className="form-group">
               <label className="text-light">Username</label>
               <input
                 className="form-control"
                 onChange={handleChange("username")}
-                type="email"
+                type="text"
                 value={username}
               />
             </div>
+            
 
             <div className="form-group">
               <label className="text-light">Password</label>

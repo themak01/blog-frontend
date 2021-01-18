@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AdminDashBoard = () => {
   const {
-    user: { username, role }
+    user: { username, role}
   } = isAutheticated();
 
   const adminLeftSide = () => {
@@ -14,28 +14,23 @@ const AdminDashBoard = () => {
         <h4 className="card-header bg-dark text-white">Admin Navigation</h4>
         <ul className="list-group">
           <li className="list-group-item">
-            <Link to="/admin/create/category" className="nav-link text-success">
-              Create Categories
+            <Link to="/admin/all/users" className="nav-link text-success">
+              Users
             </Link>
           </li>
           <li className="list-group-item">
-            <Link to="/admin/categories" className="nav-link text-success">
-              Manage Categories
-            </Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/admin/create/product" className="nav-link text-success">
-              Create Product
+            <Link to="/admin/all/posts" className="nav-link text-success">
+              Posts
             </Link>
           </li>
           <li className="list-group-item">
             <Link to="/admin/products" className="nav-link text-success">
-              Manage Products
+              Manage Users
             </Link>
           </li>
           <li className="list-group-item">
             <Link to="/admin/orders" className="nav-link text-success">
-              Manage Orders
+              Manage Posts
             </Link>
           </li>
         </ul>
@@ -52,9 +47,8 @@ const AdminDashBoard = () => {
             <span className="badge badge-success mr-2">Username:</span> {username}
           </li>
           
-
           <li className="list-group-item">
-            <span className="badge badge-danger">Admin Area</span>
+            <span className="badge badge-danger">Admin Area:</span>
           </li>
         </ul>
       </div>

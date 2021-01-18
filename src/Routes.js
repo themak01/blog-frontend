@@ -7,8 +7,9 @@ import AdminRoute from "./auth/helper/AdminRoutes";
 import PrivateRoute from "./auth/helper/PrivateRoutes";
 import UserDashBoard from "./user/UserDashBoard";
 import AdminDashBoard from "./user/AdminDashBoard";
-import Post from "./user/Post";
-
+import AllUsers from "./admin/AllUsers";
+import AllPosts from "./admin/AllPosts"
+import AddPost from "./user/AddPost"
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -17,8 +18,12 @@ const Routes = () => {
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
         <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} />
-        <PrivateRoute path="/post/create" exact component={Post}/>
+        <PrivateRoute path="/user/create/post" exact component={AddPost} />
         <AdminRoute path="/admin/dashboard" exact component={AdminDashBoard} />
+        <AdminRoute path="/admin/all/users" exact component={AllUsers} />
+        <AdminRoute path="/admin/all/posts" exact component={AllPosts} />
+        <AdminRoute path="/admin/all/posts" exact component={AllPosts} />
+        <AdminRoute path="/admin/all/posts" exact component={AllPosts} />
       </Switch>
     </BrowserRouter>
   );
